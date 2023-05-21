@@ -37,6 +37,18 @@
 		- Eliminate incorrect relations between objects
 		- Use "Tell, don't ask!" principle to eliminate type checking and casting.
 
-	- I - Interface Segregation Principle (ISP):
+	- I - Interface Segregation Principle (ISP): Clients should not be forced to depend on methods that they do not use. Normally, large interfaces would have to be split into more focused interfaces so that clients that use them will not be forced to depend on things that they do not need. The ISP can reinforce other principles with:
+		- Liskov Substitution Principle - by keeping interfaces small, the classes that implement them have a higher chance to fully substitute the interface.
+		- Single Responsibility Principle - classes that implement small interfaces are more focused and tend to have a single purpose.
+	- The benefits of applying the ISP are:
+		- Lean interfaces minimize dependencies on unused members and reduce code coupling
+		- Code becomes more cohesive and focused
+		- It reinforces the use of the SRP and LSP
+	- Refactoring code that depends on large interfaces:
+		- If owning your code - breaking interfaces is easy and safe due to the possibility to implement as many interfaces as we want
+		- If working with external legacy code - you can't control the interfaces in the external code
 
-	- D - Dependency Inversion Principle (DIP):
+	- D - Dependency Inversion Principle (DIP): High level modules should not depend on low level modules; both should depend on abstractions. Abstractions on the other hand, should not depend on details where details should depend upon abstraction. High level modules are modules written to solve real problems and use cases. They are more abstract and map to the business domain and tells us what the software should do instead of telling us how it should do. Low level modules contain implementation details that are required to execute the business policies. They are considered the "plumbing" or "internals" of an application and tells us how the software should do various tasks. Dependency injection is very used in conjunction with the dependency inversion principle however, they are not the same thing. Dependency injection is a technique that allows the creation of dependent objects outside of a class and provides those objects to a class. Inversion of control can help us create large systems by taking away the responsibility of creating objects. Inversion of control is a design principle in which the control of object creation, configuration, and lifecycle is passed to a container or framework. There are many IoC container benefits:
+		- makes it easy to switch between different implementations at runtime
+		- increases program modularity
+		- manages the lifecycle of objects and their configuration
